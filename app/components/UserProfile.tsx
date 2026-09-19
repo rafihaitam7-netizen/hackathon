@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LogOut, Phone, Mail, BadgeCheck, ChevronUp } from 'lucide-react';
+import { LogOut, Phone, Mail, BadgeCheck, ChevronUp, Settings } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function UserProfile() {
@@ -33,23 +33,23 @@ export default function UserProfile() {
             </div>
             
             <div className="p-2">
-              <div className="px-3 py-2 flex items-center gap-3 text-sm text-slate-300">
+              <div className="px-3 py-2 flex items-center gap-3 text-sm text-slate-300 hover:text-white transition-colors cursor-pointer rounded-lg hover:bg-slate-700/50">
                 <BadgeCheck className="w-4 h-4 text-slate-500" />
-                <span className="text-xs font-mono bg-slate-900 px-2 py-0.5 rounded text-slate-400">ID: MA-BRK-992</span>
+                <span className="text-xs font-semibold">My Account</span>
               </div>
               <div className="px-3 py-2 flex items-center gap-3 text-sm text-slate-300 hover:text-white transition-colors cursor-pointer rounded-lg hover:bg-slate-700/50">
                 <Mail className="w-4 h-4 text-slate-500" />
                 <span className="text-xs truncate">haitam.rafi@medassurance.ma</span>
               </div>
               <div className="px-3 py-2 flex items-center gap-3 text-sm text-slate-300 hover:text-white transition-colors cursor-pointer rounded-lg hover:bg-slate-700/50">
-                <Phone className="w-4 h-4 text-slate-500" />
-                <span className="text-xs">+212 6 XX XX XX XX</span>
+                <Settings className="w-4 h-4 text-slate-500" />
+                <span className="text-xs font-semibold">Settings</span>
               </div>
             </div>
 
             <div className="p-2 border-t border-slate-700">
               <button onClick={() => router.push('/login')} className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition-colors text-sm font-bold">
-                <LogOut className="w-4 h-4" /> Déconnexion
+                <LogOut className="w-4 h-4" /> Sign Out
               </button>
             </div>
           </motion.div>

@@ -30,7 +30,7 @@ export default function Sidebar() {
               href="/client/dashboard" 
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm font-medium ${isActive('/client/dashboard') ? 'bg-blue-600 text-white shadow-md' : 'hover:bg-slate-800 text-slate-400'}`}
             >
-              <LayoutDashboard className="w-5 h-5" /> Tableau de Bord
+              <LayoutDashboard className="w-5 h-5" /> Dashboard
             </Link>
           </li>
           <li>
@@ -38,12 +38,12 @@ export default function Sidebar() {
               href="/client/urgence" 
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm font-medium ${isActive('/client/urgence') ? 'bg-blue-600 text-white shadow-md' : 'hover:bg-slate-800 text-slate-400'}`}
             >
-              <AlertTriangle className="w-5 h-5" /> Déclarer un sinistre
+              <AlertTriangle className="w-5 h-5" /> Report a Claim (AI)
             </Link>
           </li>
           
           <li className="pt-4 pb-2">
-            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider px-3">Espace Gestionnaire</span>
+            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider px-3">Manager Workspace</span>
           </li>
           
           <li>
@@ -51,7 +51,7 @@ export default function Sidebar() {
               href="/broker/dashboard" 
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm font-medium ${isActive('/broker/dashboard') ? 'bg-blue-600 text-white shadow-md' : 'hover:bg-slate-800 text-slate-400'}`}
             >
-              <BarChart3 className="w-5 h-5" /> Analyse & Rapports
+              <BarChart3 className="w-5 h-5" /> Analytics & Reports
             </Link>
           </li>
           <li>
@@ -59,7 +59,7 @@ export default function Sidebar() {
               href="/broker/crm" 
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm font-medium ${isActive('/broker/crm') ? 'bg-blue-600 text-white shadow-md' : 'hover:bg-slate-800 text-slate-400'}`}
             >
-              <Users className="w-5 h-5" /> CRM Broker 360°
+              <Users className="w-5 h-5" /> Broker CRM 360°
             </Link>
           </li>
         </ul>

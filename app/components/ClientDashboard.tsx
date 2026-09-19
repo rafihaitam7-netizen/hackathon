@@ -26,7 +26,7 @@ export default function ClientDashboard() {
     }, 2000);
   };
 
-  const currentDate = new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+  const currentDate = new Date().toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long' });
   
   // Format "Aujourd'hui, 19 Septembre" style
   const formattedDate = currentDate.charAt(0).toUpperCase() + currentDate.slice(1);
@@ -43,12 +43,12 @@ export default function ClientDashboard() {
         {/* 1. Header Section (Welcome & Context) */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">Bonjour, Haitam Rafi</h1>
-            <p className="text-slate-500 capitalize">Aujourd'hui, {formattedDate}</p>
+            <h1 className="text-3xl font-bold text-slate-900 mb-2">Hello, Haitam Rafi</h1>
+            <p className="text-slate-500 capitalize">Today, {formattedDate}</p>
           </div>
           <div className="flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-full border border-emerald-200 shadow-sm">
             <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-bold text-emerald-700 text-sm">Couverture Active</span>
+            <span className="font-bold text-emerald-700 text-sm">Active Coverage</span>
           </div>
         </div>
 
@@ -61,8 +61,8 @@ export default function ClientDashboard() {
                 <Shield className="w-5 h-5 text-blue-600" />
               </div>
             </div>
-            <p className="text-sm text-slate-500 font-semibold mb-1">Mes Contrats</p>
-            <p className="text-2xl font-bold text-slate-900">2 <span className="text-sm font-medium text-slate-500">Actifs</span></p>
+            <p className="text-sm text-slate-500 font-semibold mb-1">Active Policies</p>
+            <p className="text-2xl font-bold text-slate-900">2 <span className="text-sm font-medium text-slate-500">Active</span></p>
           </div>
 
           <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
@@ -71,9 +71,9 @@ export default function ClientDashboard() {
                 <Calendar className="w-5 h-5 text-indigo-600" />
               </div>
             </div>
-            <p className="text-sm text-slate-500 font-semibold mb-1">Prochain Paiement</p>
+            <p className="text-sm text-slate-500 font-semibold mb-1">Upcoming Premium</p>
             <p className="text-2xl font-bold text-slate-900">450 <span className="text-sm font-medium text-slate-500">MAD</span></p>
-            <p className="text-xs text-indigo-600 font-medium mt-1">Au 01 Octobre</p>
+            <p className="text-xs text-indigo-600 font-medium mt-1">Due Oct 1st</p>
           </div>
 
           <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
@@ -82,7 +82,7 @@ export default function ClientDashboard() {
                 <TrendingUp className="w-5 h-5 text-emerald-600" />
               </div>
             </div>
-            <p className="text-sm text-slate-500 font-semibold mb-1">Score de Conduite</p>
+            <p className="text-sm text-slate-500 font-semibold mb-1">Driving Score</p>
             <p className="text-2xl font-bold text-slate-900">92<span className="text-sm font-medium text-slate-500">/100</span></p>
             <p className="text-xs text-emerald-600 font-medium mt-1">Excellent - SafeDrive+</p>
           </div>
@@ -93,8 +93,8 @@ export default function ClientDashboard() {
                 <AlertCircle className="w-5 h-5 text-orange-600" />
               </div>
             </div>
-            <p className="text-sm text-slate-500 font-semibold mb-1">Sinistres en cours</p>
-            <p className="text-2xl font-bold text-orange-600">1 <span className="text-sm font-medium text-orange-400">Dossier Ouvert</span></p>
+            <p className="text-sm text-slate-500 font-semibold mb-1">Active Claims</p>
+            <p className="text-2xl font-bold text-orange-600">1 <span className="text-sm font-medium text-orange-400">Open Case</span></p>
           </div>
           
         </div>
@@ -103,65 +103,68 @@ export default function ClientDashboard() {
           
           {/* 3. Quick Actions Panel (Middle Grid - Left) */}
           <div className="lg:col-span-1 space-y-4">
-            <h2 className="text-lg font-bold text-slate-800 mb-2">Actions Rapides</h2>
+            <h2 className="text-lg font-bold text-slate-800 mb-2 truncate">Quick Actions</h2>
             
             <Link href="/client/urgence" className="w-full flex items-center gap-3 p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md transition-colors group">
-              <div className="bg-white/20 p-2 rounded-lg group-hover:scale-110 transition-transform">
+              <div className="bg-white/20 p-2 rounded-lg group-hover:scale-110 transition-transform shrink-0">
                 <AlertCircle className="w-5 h-5" />
               </div>
-              <div className="flex-1 text-left">
-                <span className="block font-bold text-sm">Déclarer un sinistre</span>
-                <span className="text-blue-200 text-xs">Assistant IA 24/7</span>
+              <div className="flex-1 text-left truncate">
+                <span className="block font-bold text-sm truncate">Report a Claim (AI)</span>
+                <span className="text-blue-200 text-xs truncate">24/7 AI Assistant</span>
               </div>
-              <ChevronRight className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+              <ChevronRight className="w-4 h-4 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0" />
             </Link>
 
             <button 
               onClick={() => setActiveModal('attestation')}
               className="w-full flex items-center gap-3 p-4 bg-white hover:bg-slate-50 text-slate-700 rounded-xl border border-slate-200 shadow-sm transition-colors group"
             >
-              <div className="bg-slate-100 p-2 rounded-lg text-slate-500 group-hover:text-blue-600 transition-colors">
+              <div className="bg-slate-100 p-2 rounded-lg text-slate-500 group-hover:text-blue-600 transition-colors shrink-0">
                 <Download className="w-5 h-5" />
               </div>
-              <span className="flex-1 text-left font-semibold text-sm">Attestation d'Assurance</span>
+              <span className="flex-1 text-left font-semibold text-sm truncate">Download Certificate (PDF)</span>
             </button>
 
             <button 
               onClick={() => setActiveModal('contact')}
               className="w-full flex items-center gap-3 p-4 bg-white hover:bg-slate-50 text-slate-700 rounded-xl border border-slate-200 shadow-sm transition-colors group"
             >
-              <div className="bg-slate-100 p-2 rounded-lg text-slate-500 group-hover:text-blue-600 transition-colors">
+              <div className="bg-slate-100 p-2 rounded-lg text-slate-500 group-hover:text-blue-600 transition-colors shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
-              <span className="flex-1 text-left font-semibold text-sm">Contacter mon Courtier</span>
+              <span className="flex-1 text-left font-semibold text-sm truncate">Contact Broker</span>
             </button>
 
             <button 
               onClick={() => setActiveModal('modifier')}
               className="w-full flex items-center gap-3 p-4 bg-white hover:bg-slate-50 text-slate-700 rounded-xl border border-slate-200 shadow-sm transition-colors group"
             >
-              <div className="bg-slate-100 p-2 rounded-lg text-slate-500 group-hover:text-blue-600 transition-colors">
+              <div className="bg-slate-100 p-2 rounded-lg text-slate-500 group-hover:text-blue-600 transition-colors shrink-0">
                 <Settings className="w-5 h-5" />
               </div>
-              <span className="flex-1 text-left font-semibold text-sm">Modifier mes garanties</span>
+              <span className="flex-1 text-left font-semibold text-sm truncate">Manage Coverage</span>
             </button>
           </div>
 
           {/* 4. Active Claims Tracker (Middle Grid - Right) */}
           <div className="lg:col-span-2 space-y-4">
-            <h2 className="text-lg font-bold text-slate-800 mb-2">Suivi de Sinistre</h2>
+            <h2 className="text-lg font-bold text-slate-800 mb-2 truncate">Active Claims Tracker</h2>
             
             <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-[calc(100%-2.5rem)] flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-8">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-lg">Dossier #SIN-01 <span className="text-sm font-normal text-slate-500">(Casablanca)</span></h3>
+                    <h3 className="font-bold text-slate-900 text-lg">Claim #SIN-01 <span className="text-sm font-normal text-slate-500">(Casablanca)</span></h3>
                     <p className="text-sm text-orange-600 font-semibold mt-1 flex items-center gap-1">
-                      <Clock className="w-4 h-4" /> Expertise en cours
+                      <Clock className="w-4 h-4" /> Expert Assigned
                     </p>
                   </div>
-                  <button className="text-blue-600 text-sm font-bold hover:text-blue-700 flex items-center gap-1 transition-colors">
-                    Voir les détails <ChevronRight className="w-4 h-4" />
+                  <button 
+                    onClick={() => setActiveModal('claim-details')}
+                    className="text-blue-600 text-sm font-bold hover:text-blue-700 hover:underline flex items-center gap-1 transition-colors"
+                  >
+                    View Details <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
 
@@ -175,7 +178,7 @@ export default function ClientDashboard() {
                     <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-md">
                       <FileText className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-bold text-slate-800 mt-2">Déclaration</span>
+                    <span className="text-[10px] font-bold text-slate-800 mt-2 text-center w-16">Reported</span>
                   </div>
                   
                   {/* Step 2 */}
@@ -183,7 +186,7 @@ export default function ClientDashboard() {
                     <div className="w-10 h-10 bg-white border-2 border-blue-600 text-blue-600 rounded-full flex items-center justify-center shadow-sm">
                       <FileSearch className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-bold text-blue-600 mt-2">Expertise</span>
+                    <span className="text-[10px] font-bold text-blue-600 mt-2 text-center w-16">Expertise</span>
                   </div>
                   
                   {/* Step 3 */}
@@ -191,7 +194,7 @@ export default function ClientDashboard() {
                     <div className="w-10 h-10 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center">
                       <Car className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-bold text-slate-400 mt-2">Garage</span>
+                    <span className="text-[10px] font-bold text-slate-400 mt-2 text-center w-16">Garage</span>
                   </div>
                   
                   {/* Step 4 */}
@@ -199,7 +202,7 @@ export default function ClientDashboard() {
                     <div className="w-10 h-10 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center">
                       <Wrench className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-bold text-slate-400 mt-2">Réparations</span>
+                    <span className="text-[10px] font-bold text-slate-400 mt-2 text-center w-16">Repairs</span>
                   </div>
 
                   {/* Step 5 */}
@@ -207,7 +210,7 @@ export default function ClientDashboard() {
                     <div className="w-10 h-10 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center">
                       <CheckCircle className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-bold text-slate-400 mt-2">Prêt</span>
+                    <span className="text-[10px] font-bold text-slate-400 mt-2 text-center w-16">Ready</span>
                   </div>
 
                 </div>
@@ -216,8 +219,8 @@ export default function ClientDashboard() {
               <div className="mt-8 bg-slate-50 rounded-lg p-4 border border-slate-100 flex items-start gap-3">
                 <FileSearch className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm font-semibold text-slate-800">Dernière mise à jour (Hier, 15:30)</p>
-                  <p className="text-xs text-slate-600 mt-1">L'expert a validé les dommages au pare-chocs avant. En attente du devis détaillé du garage partenaire "Auto Réparations Casa".</p>
+                  <p className="text-sm font-semibold text-slate-800">Last update (Yesterday, 15:30)</p>
+                  <p className="text-xs text-slate-600 mt-1">The expert has validated the front bumper damage. Waiting for detailed estimate from partner garage "Auto Réparations Casa".</p>
                 </div>
               </div>
 
@@ -227,7 +230,7 @@ export default function ClientDashboard() {
 
         {/* 5. Recent Documents & Activity (Bottom Section) */}
         <div className="space-y-4">
-          <h2 className="text-lg font-bold text-slate-800">Documents & Activité Récente</h2>
+          <h2 className="text-lg font-bold text-slate-800">Recent Documents & Activity</h2>
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
             
             <div className="p-4 border-b border-slate-100 hover:bg-slate-50 transition-colors flex items-center justify-between group cursor-pointer">
@@ -236,8 +239,8 @@ export default function ClientDashboard() {
                   <FileText className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-800">Constat Amiable_Upload.pdf</p>
-                  <p className="text-xs text-slate-500">Ajouté il y a 2 jours • Dossier #SIN-01</p>
+                  <p className="text-sm font-bold text-slate-800">E-Constat_Upload.pdf</p>
+                  <p className="text-xs text-slate-500">Added 2 days ago • Claim #SIN-01</p>
                 </div>
               </div>
               <button className="text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:bg-blue-50 rounded">
@@ -251,8 +254,8 @@ export default function ClientDashboard() {
                   <Shield className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-800">Renouvellement Assurance Auto (TOYOTA RAV4)</p>
-                  <p className="text-xs text-slate-500">Payé le 01 Septembre • Quittance générée</p>
+                  <p className="text-sm font-bold text-slate-800">Auto Insurance Renewal (TOYOTA RAV4)</p>
+                  <p className="text-xs text-slate-500">Paid Sept 1st • Receipt generated</p>
                 </div>
               </div>
               <button className="text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:bg-blue-50 rounded">
@@ -266,8 +269,8 @@ export default function ClientDashboard() {
                   <Settings className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-800">Mise à jour des coordonnées bancaires</p>
-                  <p className="text-xs text-slate-500">Approuvée le 28 Août</p>
+                  <p className="text-sm font-bold text-slate-800">Bank Details Update</p>
+                  <p className="text-xs text-slate-500">Approved Aug 28th</p>
                 </div>
               </div>
             </div>
@@ -300,54 +303,56 @@ export default function ClientDashboard() {
                   <X className="w-5 h-5" />
                 </button>
 
+                {/* ATTESTATION MODAL */}
                 {activeModal === 'attestation' && (
                   <div className="p-6">
                     <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4">
                       <FileText className="w-6 h-6" />
                     </div>
-                    <h2 className="text-xl font-bold text-slate-900 mb-2">Attestation d'Assurance</h2>
-                    <p className="text-slate-500 text-sm mb-6">Aperçu de votre document officiel valable jusqu'au 31/12/2026.</p>
+                    <h2 className="text-xl font-bold text-slate-900 mb-2">Insurance Certificate</h2>
+                    <p className="text-slate-500 text-sm mb-6">Preview of your official document valid until 12/31/2026.</p>
                     
                     <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 flex flex-col items-center justify-center h-48 mb-6">
                       <Shield className="w-12 h-12 text-slate-300 mb-3" />
-                      <p className="font-bold text-slate-400">Aperçu PDF Non Disponible</p>
+                      <p className="font-bold text-slate-400">PDF Preview Not Available</p>
                     </div>
 
                     <button 
                       onClick={closeModal}
                       className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition-colors flex items-center justify-center gap-2"
                     >
-                      <Download className="w-5 h-5" /> Télécharger (PDF)
+                      <Download className="w-5 h-5" /> Download (PDF)
                     </button>
                   </div>
                 )}
 
+                {/* CONTACT MODAL */}
                 {activeModal === 'contact' && (
                   <div className="p-6">
                     <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-4">
                       <Phone className="w-6 h-6" />
                     </div>
-                    <h2 className="text-xl font-bold text-slate-900 mb-2">Contacter mon Courtier</h2>
-                    <p className="text-slate-500 text-sm mb-6">Envoyer un message direct à votre conseiller attitré.</p>
+                    <h2 className="text-xl font-bold text-slate-900 mb-2">Contact Broker</h2>
+                    <p className="text-slate-500 text-sm mb-6">Send a direct message to your assigned advisor.</p>
                     
                     {messageSent ? (
                       <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-emerald-50 border border-emerald-200 rounded-xl p-8 flex flex-col items-center text-center">
                         <div className="w-16 h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center mb-4 shadow-lg">
                           <Check className="w-8 h-8" />
                         </div>
-                        <h3 className="text-lg font-bold text-emerald-800">Message Envoyé !</h3>
-                        <p className="text-sm text-emerald-600 mt-1">Votre courtier vous répondra sous 2h ouvrées.</p>
+                        <h3 className="text-lg font-bold text-emerald-800">Message Sent!</h3>
+                        <p className="text-sm text-emerald-600 mt-1">Your broker will reply within 2 business hours.</p>
                       </motion.div>
                     ) : (
                       <form onSubmit={handleContactSubmit}>
                         <div className="space-y-4 mb-6">
                           <div>
-                            <label className="block text-sm font-bold text-slate-700 mb-1">Sujet</label>
+                            <label className="block text-sm font-bold text-slate-700 mb-1">Subject</label>
                             <select className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                              <option>Question sur mon contrat</option>
-                              <option>Demande d'avenant</option>
-                              <option>Suivi de sinistre</option>
-                              <option>Autre demande</option>
+                              <option>Question about my policy</option>
+                              <option>Coverage change request</option>
+                              <option>Claim status update</option>
+                              <option>Other request</option>
                             </select>
                           </div>
                           <div>
@@ -356,7 +361,7 @@ export default function ClientDashboard() {
                               required
                               rows={4} 
                               className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                              placeholder="Écrivez votre message ici..."
+                              placeholder="Type your message here..."
                             />
                           </div>
                         </div>
@@ -364,39 +369,40 @@ export default function ClientDashboard() {
                           type="submit"
                           className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md transition-colors flex items-center justify-center gap-2"
                         >
-                          <Send className="w-4 h-4" /> Envoyer
+                          <Send className="w-4 h-4" /> Send Message
                         </button>
                       </form>
                     )}
                   </div>
                 )}
 
+                {/* MODIFIER MODAL */}
                 {activeModal === 'modifier' && (
                   <div className="p-6">
                     <div className="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-4">
                       <Settings className="w-6 h-6" />
                     </div>
-                    <h2 className="text-xl font-bold text-slate-900 mb-2">Modifier mes garanties</h2>
-                    <p className="text-slate-500 text-sm mb-6">Ajoutez des options à votre contrat AUTO-998822. Effet immédiat.</p>
+                    <h2 className="text-xl font-bold text-slate-900 mb-2">Manage Coverage</h2>
+                    <p className="text-slate-500 text-sm mb-6">Add options to your AUTO-998822 policy. Immediate effect.</p>
                     
                     <div className="space-y-3 mb-8">
                       <label className="flex items-center justify-between p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
                         <div>
-                          <p className="font-bold text-slate-800 text-sm">Assistance 0 km</p>
-                          <p className="text-xs text-slate-500">Dépannage même en bas de chez vous.</p>
+                          <p className="font-bold text-slate-800 text-sm">0 km Roadside Assistance</p>
+                          <p className="text-xs text-slate-500">Towing even from your driveway.</p>
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="text-sm font-bold text-blue-600">+45 MAD/mois</span>
+                          <span className="text-sm font-bold text-blue-600">+45 MAD/mo</span>
                           <input type="checkbox" className="w-5 h-5 accent-blue-600" />
                         </div>
                       </label>
                       <label className="flex items-center justify-between p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
                         <div>
-                          <p className="font-bold text-slate-800 text-sm">Bris de glace sans franchise</p>
-                          <p className="text-xs text-slate-500">Remplacement 100% pris en charge.</p>
+                          <p className="font-bold text-slate-800 text-sm">Zero Deductible Glass Breakage</p>
+                          <p className="text-xs text-slate-500">100% replacement coverage.</p>
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="text-sm font-bold text-blue-600">+20 MAD/mois</span>
+                          <span className="text-sm font-bold text-blue-600">+20 MAD/mo</span>
                           <input type="checkbox" className="w-5 h-5 accent-blue-600" />
                         </div>
                       </label>
@@ -406,7 +412,73 @@ export default function ClientDashboard() {
                       onClick={closeModal}
                       className="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl shadow-md transition-colors flex items-center justify-center"
                     >
-                      Simuler le nouveau tarif
+                      Simulate New Premium
+                    </button>
+                  </div>
+                )}
+
+                {/* CLAIM DETAILS MODAL */}
+                {activeModal === 'claim-details' && (
+                  <div className="p-6">
+                    <h2 className="text-xl font-bold text-slate-900 mb-2">Claim #SIN-01 Status</h2>
+                    <p className="text-slate-500 text-sm mb-6">Track the progress of your active claim.</p>
+
+                    <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent mb-8">
+                      
+                      {/* Step 1 */}
+                      <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-emerald-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                          <CheckCircle className="w-5 h-5" />
+                        </div>
+                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
+                          <div className="flex items-center justify-between mb-1">
+                            <h4 className="font-bold text-slate-900">Claim Reported</h4>
+                            <span className="text-xs font-semibold text-slate-400">Sep 18</span>
+                          </div>
+                          <p className="text-sm text-slate-500">Incident successfully registered via AI Assistant.</p>
+                        </div>
+                      </motion.div>
+
+                      {/* Step 2 */}
+                      <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                          <div className="w-2.5 h-2.5 bg-white rounded-full animate-pulse" />
+                        </div>
+                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-blue-200 bg-blue-50 shadow-sm">
+                          <div className="flex items-center justify-between mb-1">
+                            <h4 className="font-bold text-blue-900">Expert Assigned</h4>
+                            <span className="text-xs font-semibold text-blue-600">In Progress</span>
+                          </div>
+                          <p className="text-sm text-blue-700">Expert is reviewing your submitted damage report.</p>
+                        </div>
+                      </motion.div>
+
+                      {/* Step 3 */}
+                      <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-slate-200 bg-slate-50 text-slate-400 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                          <Car className="w-4 h-4" />
+                        </div>
+                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-slate-50">
+                          <h4 className="font-bold text-slate-400">Vehicle at Garage</h4>
+                        </div>
+                      </motion.div>
+
+                      {/* Step 4 */}
+                      <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-slate-200 bg-slate-50 text-slate-400 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                          <Wrench className="w-4 h-4" />
+                        </div>
+                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-100 bg-slate-50">
+                          <h4 className="font-bold text-slate-400">Repairs Completed</h4>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    <button 
+                      onClick={closeModal}
+                      className="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors"
+                    >
+                      Close
                     </button>
                   </div>
                 )}
