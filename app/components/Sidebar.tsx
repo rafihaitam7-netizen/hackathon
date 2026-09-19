@@ -17,8 +17,8 @@ export default function Sidebar() {
   return (
     <aside className="w-64 bg-slate-900 text-slate-300 flex flex-col shrink-0 h-full">
       <div className="p-6 border-b border-slate-800">
-        <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <span className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-sm">M</span>
+        <h1 className="text-xl font-bold text-white flex items-center gap-3 whitespace-nowrap">
+          <span className="w-8 h-8 shrink-0 bg-blue-600 rounded-lg flex items-center justify-center text-sm">M</span>
           Med Assurance
         </h1>
       </div>
